@@ -3,67 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Guessing Game</title>
+    <title>SkidRush - Mobile Game Development Studio</title>
     <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid #334155;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: var(--text-main);
+        }
+        .hero {
             text-align: center;
-            background-color: #f4f4f9;
-            margin-top: 50px;
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .game-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.2s;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+        .game-info {
+            padding: 24px;
+        }
+        .game-info h3 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+        .game-info p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .btn {
             display: inline-block;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
         }
-        input {
-            padding: 8px;
-            font-size: 16px;
+        .btn:hover {
+            background-color: var(--primary-dark);
         }
-        button {
-            padding: 8px 15px;
-            font-size: 16px;
-            cursor: pointer;
+        .about-section, .privacy-section {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid #334155;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            border-top: 1px solid #334155;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-    <div class="game-container">
-        <h1>Guess the Number!</h1>
-        <p>Guess a number between 1 and 100</p>
-        <input type="number" id="guessInput" min="1" max="100">
-        <button onclick="checkGuess()">Guess</button>
-        <p id="message"></p>
+    <header>
+        <a href="#" class="logo">SkidRush Games</a>
+        <nav>
+            <a href="#games">Games</a>
+            <a href="#about">About</a>
+            <a href="#privacy">Privacy Policy</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Immersive Mobile Story Adventures</h1>
+        <p>Welcome to SkidRush Studio. We craft interactive story-driven experiences designed to captivate your imagination through romance, drama, and suspense.</p>
+        <a href="https://play.google.com/store/apps/dev?id=6864332011557881643" class="btn" target="_blank">View Developer Profile on Google Play</a>
     </div>
 
-    <script>
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
+    <div class="container">
+        
+        <!-- Games Showcase Section -->
+        <div id="games">
+            <h2 class="section-title">Featured Game</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-info">
+                        <h3>3D Episodes Story Love Date</h3>
+                        <p>Read through pages of amazing chapters that fit your mood from romance to suspense. Experience unique choose-your-own-story adventures featuring drama, comedy, fantasy, and young adult romance!</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.skstudios.ft" class="btn" target="_blank">Download on Google Play</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        function checkGuess() {
-            let userGuess = Number(document.getElementById('guessInput').value);
-            let message = document.getElementById('message');
+        <!-- About Section (Required for AdSense Value) -->
+        <div id="about" class="about-section">
+            <h2 class="section-title" style="margin-top:0;">About SkidRush</h2>
+            <p>SkidRush is an independent mobile game development studio dedicated to building high-quality, engaging narrative experiences for Android players worldwide. Our mission is to blend rich visual storytelling with interactive choices that put players right in the center of compelling journeys.</p>
+        </div>
 
-            if (!userGuess || userGuess < 1 || userGuess > 100) {
-                message.textContent = "Please enter a valid number between 1 and 100.";
-                message.style.color = "orange";
-                return;
-            }
+        <!-- Privacy Policy Section (Required by AdSense) -->
+        <div id="privacy" class="privacy-section">
+            <h2 class="section-title" style="margin-top:0;">Privacy Policy</h2>
+            <p>At SkidRush, we respect your privacy. Our mobile games may use standard third-party advertising networks (such as Google AdMob) to display ads. These networks may collect anonymous usage data and device identifiers to provide relevant advertising experiences in accordance with Google Play policies.</p>
+            <p>If you have any questions or concerns regarding our privacy practices, you can contact us directly via our developer profile email support.</p>
+        </div>
 
-            if (userGuess === randomNumber) {
-                message.textContent = "🎉 Correct! You guessed the number!";
-                message.style.color = "green";
-            } else if (userGuess < randomNumber) {
-                message.textContent = "Too low! Try a higher number.";
-                message.style.color = "red";
-            } else {
-                message.textContent = "Too high! Try a lower number.";
-                message.style.color = "red";
-            }
-        }
-    </script>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SkidRush Studio. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
