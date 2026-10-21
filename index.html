@@ -6,8 +6,8 @@
     <title>SkidRush - Mobile Game Development Studio</title>
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
+            --primary: #ff6600;
+            --primary-dark: #e55c00;
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --text-main: #f8fafc;
@@ -22,9 +22,9 @@
             line-height: 1.6;
         }
         header {
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             border-bottom: 1px solid #334155;
-            padding: 20px 40px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -32,11 +32,22 @@
             top: 0;
             z-index: 100;
         }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary);
+        .logo-container {
+            display: flex;
+            align-items: center;
             text-decoration: none;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 40px;
+            width: auto;
+            border-radius: 6px;
+        }
+        .logo-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 0.5px;
         }
         nav a {
             color: var(--text-muted);
@@ -89,6 +100,12 @@
         .game-card:hover {
             transform: translateY(-5px);
         }
+        .game-thumb {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #334155;
+        }
         .game-info {
             padding: 24px;
         }
@@ -133,7 +150,10 @@
 <body>
 
     <header>
-        <a href="#" class="logo">SkidRush Games</a>
+        <a href="#" class="logo-container">
+            <img src="logo.jpg" alt="SkidRush Logo" class="logo-img">
+            <span class="logo-text">SkidRush</span>
+        </a>
         <nav>
             <a href="#games">Games</a>
             <a href="#about">About</a>
@@ -154,6 +174,7 @@
             <h2 class="section-title">Featured Game</h2>
             <div class="games-grid">
                 <div class="game-card">
+                    <img src="game_logo.png" alt="3D Episodes Story Love Date" class="game-thumb">
                     <div class="game-info">
                         <h3>3D Episodes Story Love Date</h3>
                         <p>Read through pages of amazing chapters that fit your mood from romance to suspense. Experience unique choose-your-own-story adventures featuring drama, comedy, fantasy, and young adult romance!</p>
